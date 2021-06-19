@@ -1,0 +1,88 @@
+<%- include('partials/playerHeader') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card">
+                    <img height="300" src="/images/SMALLS.jpg" class="img-thumbnail" />
+                    <div class="card-body text-center">
+                        <span id="artist">Artist</span> - <span id="artistSong">Song</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <div id="duration" class="text-center">0:00</div>
+                                    <div id="progress" class="progress" style="width: 100%;">
+                                        <div id="progressBar" class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <li class="makeTaller" artist="Smalls" song="songs/Cards.mp3" cover="SMALLS.jpg">
+                            <h5 class="buffer makeTaller">Cards</h5>
+                            <audio>
+                                <source src="songs/Cards.mp3" type="audio/mpeg">
+                            </audio>
+                        </li>
+                        <li class="makeTaller" artist="Smalls" song="songs/Flutters.mp3" cover="SMALLS.jpg">
+                            <h5 class="buffer makeTaller">Flutters</h5>
+                            <audio>
+                                <source src="songs/Flutters.mp3" type="audio/mpeg">
+                            </audio>
+                        </li>
+                        <li class="makeTaller" artist="Smalls" song="songs/Cards.mp3" cover="SMALLS.jpg">
+                            <h5 class="buffer makeTaller">Cards</h5>
+                            <audio>
+                                <source src="songs/Cards.mp3" type="audio/mpeg">
+                            </audio>
+                        </li>
+                        <li class="makeTaller" artist="Smalls" song="songs/Flutters.mp3" cover="SMALLS.jpg">
+                            <h5 class="buffer makeTaller">Flutters</h5>
+                            <audio>
+                                <source src="songs/Flutters.mp3" type="audio/mpeg">
+                            </audio>
+                        </li>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-block btn-secondary" data-target=#purchaseModal>Purchase</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="purchaseModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="songId" class="modal-title"></h3>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <img src="/images/SMALLS.jpg" class="img-thumbnail" />
+                    <hr>
+                    <div class="container">
+                        <div class="row">
+                            <label for="cardNumber" class="col-md-4 col-form-label">Card Number</label>
+                            <input class="col-md-8 form-control" type="text" id="cardNumber" name="cardNumber" placeholder="Card Number">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <label for="expDate" class="col-md-4 col-form-label" >Expiration</label>
+                            <input class="col-md-8 form-control" type="text" id="expdate" name="expDate" placeholder="Expiration Date">
+                        </div>
+                        <br>
+                        <div class="row">
+                            <label for="security" class="col-md-4 col-form-label">Security Code</label>
+                            <input class="col-md-8 form-control" type="text" id="security" name="security" placeholder="Security Code">
+                        </div>
+                        <hr>
+                        <button type="button" class="btn btn-block btn-primary">
+                            <i class="fa fa-credit-card"></i> Purchase
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('partials/footer') %>

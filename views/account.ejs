@@ -1,0 +1,28 @@
+<%- include('partials/header') %>
+<div class="container loginContainStyle">
+    <div class="row">
+        <p class="col col-md-8 loginColDiv">Enter your information here that you are going to use to create your account.</p>
+    </div>
+    <br>
+    <br>
+    <form action="/account" method="POST">
+        <div class="row">
+            <input class="col-md-8 form-control inputStyle loginColDiv" type="text" name="username" placeholder="Username" />
+        </div>
+        <br>
+        <div class="row">
+            <input class="col-md-8 form-control inputStyle loginColDiv" type="password" name="password" placeholder="Password" />
+        </div>
+        <br>
+        <div class="row">
+            <input class="col-md-8 form-control inputStyle loginColDiv" type="email" name="email" placeholder="Email" />
+        </div>
+        <br>
+        <br>
+        <div class="row">
+            <button class="col-md-8 btn createButtonStyle loginColDiv" type="submit">Create account</button>
+        </div>
+    </form>
+</div>
+
+<%- include('partials/footer') %>
