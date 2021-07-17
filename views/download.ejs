@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+    <div class="container">
+        <div class="row">
+            <div class="col card cardStyle">
+                <div class="card-body">
+                    <p>Choose your song from the dropdown:</p>
+                    <p id="downloadList"></p>
+                    <div class="row">
+                        <select name="songs" class="col-md-4 thinner">
+                            <option value=" ">Choose a song</option>
+                            <option value="Cards">Cards</option>
+                            <option value="Flutters">Flutters</option>
+                        </select>
+                        <div class="col-md-1"></div>
+                        <button class="col-md-2 btn btn-primary leftRight" id="addButton">Add Song</button>
+                        <button class="col-md-2 btn btn-primary leftRight" id="removeButton">Remove Song</button>
+                        <button class="col-md-2 btn btn-primary leftRight" id="downloadButton" onclick="downloadSome()">
+                            <a id="downloadLink" download>Download</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('partials/footer') %> 

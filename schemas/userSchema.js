@@ -14,6 +14,15 @@ const userSchema = new Schema({
     
     email: {
         type: String,
+    },
+
+    admin: {
+        type: Boolean,
+        default: false
+    },
+    paid: {
+        type: Boolean,
+        default: false
     }
 }, {
     timestamps: true

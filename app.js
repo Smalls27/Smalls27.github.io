@@ -1,26 +1,19 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config()
-}
-
+require('dotenv').config({ path: './.env'});
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const ejs = require('ejs');
 const mongoose = require('mongoose');
 const session = require('express-session');
-const stripe = require('stripe')('sk_test_51GmWr7CPUry3AfVarVGcvo0bYT03cHo1m79Z1IO2bkaE8qyd9iUeV4SaixjNClOVIlg2ADFoduTprMGesbcpN2Er00a50BBSg0');
-const paymentIntent = stripe.paymentIntent.create({
-  amount: 129,
-  currency: 'usd',
-  metadata: {integration_check: 'accept_a_payment'}
-});
 const authenticate = require('./authenticate');
-const playerRouter = require('./routes/playerRouter');
+const playerRouter = require('./routes/playerRouter'); 
 const loginRouter = require('./routes/loginRouter');
 const accountRouter = require('./routes/accountRouter');
 const credentialRouter = require('./routes/retrieveCredentials');
+const checkoutRouter = require('./routes/checkoutRouter');
+const uploadRouter = require('./routes/uploadRouter');
+const downloadRouter = require('./routes/download');
 
 
 mongoose.connect('mongodb://localhost:27017/rgmregistry', {
@@ -34,13 +27,24 @@ mongoose.connect('mongodb://localhost:27017/rgmregistry', {
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.use(session({
 	secret: process.env.session_id,
 	resave: false,
-	saveUninitialized: true
+	saveUninitialized: true,
+  cookie: {
+    sameSite: 'lax',
+  }
 }));
+
+app.all('*', (req, res, next) => {
+  if (req.secure) {
+    return next();
+  } else {
+      console.log(`Redirecting to: https://${req.hostname}:${app.get('secPort')}${req.url}`);
+      res.redirect(301, `https://${req.hostname}:${app.get('secPort')}${req.url}`);
+  }
+});
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -52,8 +56,12 @@ app.use(authenticate.session);
 app.use('/', loginRouter);
 app.use('/account', accountRouter);
 app.use('/credentials', credentialRouter);
-app.use(express.static(path.join(__dirname, 'public')));
 app.use('/musicPlayer', playerRouter);
+app.use('/checkout', checkoutRouter);
+app.use('/upload', uploadRouter);
+app.use('/download', downloadRouter);
+app.use(express.static(path.join(__dirname, 'public')));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -68,7 +76,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.render('error', { err: res.locals.message });
 });
 
 module.exports = app;

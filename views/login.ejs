@@ -1,33 +1,41 @@
 <%- include('partials/header') %>
     <div class="container loginContainStyle">
         <div class="row">
-            <p id="loginMessage" class="col col-md-8 loginColDiv">Enter your username and password here.</p>
-        </div>
-        <br>
-        <br>
-        <form action="/" method="POST">
-            <div class="row">
-                <input class="col col-md-8 form-control inputStyle loginColDiv" type="text" name="username" placeholder="Username" />
+            <div class="card loginCardStyle">
+                <div class="card-header">
+                    <div class="row">
+                        <p id="loginMessage" class="col loginColDiv">Enter your username and password here.</p>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="card-body">
+                    <form action="/" method="POST">
+                        <div class="row">
+                            <input class="col form-control inputStyle loginColDiv" type="text" name="username" placeholder="Username" />
+                        </div>
+                        <br>
+                        <br>
+                        <div class="row">
+                            <input class="col form-control inputStyle loginColDiv" type="password" name="password" placeholder="Password" />
+                        </div>
+                        <br>
+                        <div class="row">
+                            <button class="col btn btn-block loginColDiv buttonStyle" type="submit">Login</button>
+                        </div>
+                    </form>
+                </div>
+                <hr style="margin-left: 10px; margin-right: 10px;">
+                <div class="card-body">
+                    <div class="row">
+                        <button class="col-md-5 createButtonStyle" type="button" onclick="toAccountPage()">Create Account</button>
+                        <br>
+                        <div class="col-md-2"></div>
+                        <br>
+                        <button class="col-md-5 createButtonStyle" type="button" onclick="toCredentialsPage()">Retrieve Credentials</button>
+                    </div>
+                </div>
             </div>
-            <br>
-            <br>
-            <div class="row">
-                <input class="col col-md-8 form-control inputStyle loginColDiv" type="password" name="password" placeholder="Password" />
-            </div>
-            <br>
-            <div class="row">
-                <button class="col col-md-8 btn btn-block loginColDiv buttonStyle" type="submit">Login</button>
-            </div>
-        </form>
-        <br>
-        <br>
-        <br>
-        <div class="row">
-            <button class="col-md-4 createButtonStyle" type="button" onclick="toAccountPage()">Create Account</button>
-            <br>
-            <div class="col-md-4"></div>
-            <br>
-            <button class="col-md-4 createButtonStyle" type="button" onclick="toCredentialsPage()">Retrieve Credentials</button>
         </div>
     </div>
 <%- include('partials/footer') %>

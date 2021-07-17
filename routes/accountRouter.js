@@ -15,17 +15,18 @@ accountRouter.route('/')
         password: hashedPassword,
         email: req.body.email
     }
-    const duplicateUser =  User.findOne({username: newUser.username})
-    if (duplicateUser) {
+    User.findOne({username: newUser.username})
+    .then(user => {
+        if (user) {
             res.render('duplicateUsername');
         } else {
-            next();
+            User.create(newUser)
+            .then(() => {
+                res.render('createAccountConformation');
+            })
+            .catch(err => console.log(err))
         }
-    User.create(newUser)
-    .then(() => {
-        res.render('createAccountConformation');
-    })
-    .catch(err => console.log(err))
+    }).catch(err => console.log(err))
 });
 
 module.exports = accountRouter;

@@ -1,0 +1,41 @@
+<%- include('partials/header') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <p id="errDiv"></p>
+                <div class="card col cardStyle">
+                    <img src="/images/SMALLS.jpg" height='300' />
+                    <div class="card-body">
+                        <form action="/checkout" method="POST" id="payment-form" data-secret="<%= clientSecret %>">
+                            <div id="items">
+                                <% cartItems.forEach(song => { %>
+                                    <div class="row">
+                                        <div class="col-1">
+                                            <input type="checkbox" name="downloadItems" class="checkboxStyle" value="<%= song.song %>" checked/>
+                                        </div>
+                                        <h5 class="col-8"><%= song.song %></h5>
+                                        <div class="col-2">$ 1.29</div>
+                                    </div>
+                                <% }) %>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="priceStyle">
+                                    <h3 id="price"></h3>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="col-md-12 form-control payStyle" id="cardElement">
+
+                            </div>
+                            <hr>
+                            <button id="submit" type="submit" class="btn btn-block btn-primary">
+                                <i class="fa fa-credit-card"></i> Purchase
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('partials/footer') %>  
