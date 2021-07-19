@@ -1,4 +1,7 @@
-<% include('partials/header') %>
-<h1>Your payment has been sent to stripe successfully</h1>
-<button onclick="backToMusicPage()">Go back to music player.</button> 
-<% include('partials/footer') %> 
+<%- include('partials/header') %>
+<div class="container">
+    <h1>Your payment has been processed successfully!</h1>
+    <button onclick="backToMusicPage()">Go back to music player.</button>
+    <button id="downloadButton"><a id="downloadSong" download></a></button> 
+</div>
+<%- include('partials/footer') %> 

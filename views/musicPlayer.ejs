@@ -2,9 +2,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <p><%= message %></p>
+                <p>
+                    As of right now...only one song can be purchased at a time.
+                </p>
+                <div>Songs you want must have the box next to it checked.</div>
                 <div class="card col cardStyle">
-                    <img height="300" src="/images/SMALLS.jpg" />
+                    <img src="/images/SMALLS.jpg" class="img-thumbnail" />
                     <div class="card-body text-center">
                         <span id="artist">Artist</span> - <span id="artistSong">Song</span>
                     </div>
@@ -29,7 +32,7 @@
                                     </div>
                                     <div class="col-10">
                                         <li class="makeTaller" artist="Smalls" song="songs/<%= song.song %>.mp3" cover="SMALLS.jpg">
-                                            <h5 class="buffer makeTaller"><%= song.song %></h5>
+                                            <h5 class="buffer makeTaller" style="padding-left: 5px; border-radius: 5px;"><i class="fa fa-music"></i> <%= song.song %></h5>
                                             <audio>
                                                 <source src="songs/<%= song.song %>.mp3 " type="audio/mpeg" />
                                             </audio>
@@ -38,7 +41,9 @@
                                 </div>
                             <% }) %>
                             <hr>
-                            <button type="submit" class="btn btn-block blackColor">Purchase</button>
+                            <button id="toCartButton" type="submit" class="btn btn-block blackColor">
+                                <i class="fa fa-shopping-cart"></i> Purchase
+                            </button>
                         </form>
                     </div>
                 </div>

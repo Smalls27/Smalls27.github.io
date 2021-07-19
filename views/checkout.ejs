@@ -4,7 +4,7 @@
             <div class="col-md-6 mx-auto">
                 <p id="errDiv"></p>
                 <div class="card col cardStyle">
-                    <img src="/images/SMALLS.jpg" height='300' />
+                    <img src="/images/SMALLS.jpg" class="img-thumbnail" />
                     <div class="card-body">
                         <form action="/checkout" method="POST" id="payment-form" data-secret="<%= clientSecret %>">
                             <div id="items">
@@ -13,8 +13,8 @@
                                         <div class="col-1">
                                             <input type="checkbox" name="downloadItems" class="checkboxStyle" value="<%= song.song %>" checked/>
                                         </div>
-                                        <h5 class="col-8"><%= song.song %></h5>
-                                        <div class="col-2">$ 1.29</div>
+                                        <h5 class="col-7"><i class="fa fa-music"></i> <%= song.song %></h5>
+                                        <div class="col-3">$ 1.29</div>
                                     </div>
                                 <% }) %>
                             </div>

@@ -9,12 +9,12 @@ accountRouter.route('/')
     res.render('account');
 })
 .post(async (req, res, next) => {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10)
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     const newUser = {
         username: req.body.username,
         password: hashedPassword,
         email: req.body.email
-    }
+    };
     User.findOne({username: newUser.username})
     .then(user => {
         if (user) {
@@ -24,9 +24,9 @@ accountRouter.route('/')
             .then(() => {
                 res.render('createAccountConformation');
             })
-            .catch(err => console.log(err))
-        }
-    }).catch(err => console.log(err))
+            .catch(err => console.log(err));
+        };
+    }).catch(err => console.log(err));
 });
 
 module.exports = accountRouter;

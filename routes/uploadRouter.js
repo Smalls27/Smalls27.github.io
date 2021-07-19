@@ -1,17 +1,16 @@
 const express = require('express');
-const { NetworkAuthenticationRequire } = require('http-errors');
 const uploadRouter = express.Router();
 const Song = require('../schemas/songSchema');
 
 const isLoggedIn = (req, res, next) => {
 	if (req.isAuthenticated()) return next();
 	res.redirect('/');
-}
+};
 
 const isAdmin = (req, res, next) => {
     if (req.user.admin) return next();
     res.redirect('/musicPlayer');
-}
+};
 
 uploadRouter.route('/')
     .get(isLoggedIn, isAdmin, (req, res) => {
@@ -25,7 +24,7 @@ uploadRouter.route('/')
             price: req.body.price,
             album: req.body.album,
             single: req.body.single
-        }
+        };
 
         Song.create(newSong)
         .then(song => {
@@ -34,7 +33,7 @@ uploadRouter.route('/')
             } else {
                 res.render('songUpload');
             }
-        }).catch(err => console.log(err))
+        }).catch(err => console.log(err));
     });
 
 module.exports = uploadRouter;

@@ -32,7 +32,12 @@
     "stripe": "^8.156.0"
   },
   "devDependencies": {
+    "copyfiles": "^2.4.1",
     "dotenv": "^10.0.0",
-    "nodemon": "^2.0.7"
+    "imagemin-cli": "^6.0.0",
+    "nodemon": "^2.0.7",
+    "parallelshell": "^3.0.2",
+    "rimraf": "^3.0.2",
+    "usemin-cli": "^0.6.0"
   }
 }

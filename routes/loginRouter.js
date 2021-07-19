@@ -7,34 +7,34 @@ const User = require('../schemas/userSchema');
 const isLoggedOut = (req, res, next) => {
 	if (!req.isAuthenticated()) return next();
 	res.redirect('/musicPlayer');
-}
+};
 
 /* GET users listing. */
 loginRouter.route('/')
-.get(isLoggedOut, (req, res) => {
-  res.render('login');
-})
-.post(passport.authenticate('local', {successRedirect: '/musicPlayer', failureRedirect: '/'}), (req, res) => {
-  const login = {
-    username: req.body.username,
-    password: req.body.password
-  }
-
-  User.findOne({username: login.username})
-  .then(async user => {
-    if (!user) {
-      res.render('accountError');
-    }
-
-    if (await !bcrypt.compare(login.Password, user.password) || login.Password === '') {
-      res.render('passwordError');
-    } 
-  
-    res.redirect('/musicPlayer');
-
+  .get(isLoggedOut, (req, res) => {
+    res.render('login');
   })
-  .catch(err => console.log(err));
+  .post(passport.authenticate('local', {successRedirect: '/musicPlayer', failureRedirect: '/'}), (req, res) => {
+    const login = {
+      username: req.body.username,
+      password: req.body.password
+    };
 
-})
+    User.findOne({username: login.username})
+    .then(async user => {
+      if (!user) {
+        res.render('accountError');
+      };
+
+      if (await !bcrypt.compare(login.Password, user.password) || login.Password === '') {
+        res.render('passwordError');
+      };
+    
+      res.redirect('/musicPlayer');
+
+    })
+    .catch(err => console.log(err));
+
+  });
 
 module.exports = loginRouter;
