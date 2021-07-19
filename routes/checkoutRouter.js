@@ -20,8 +20,6 @@ checkoutRouter.route('/')
     })
     .post(async (req, res) => {
         await User.findOneAndUpdate({ _id: req.user._id }, { $set: { paid: true }});
-        const { downloadItems } = req.body;
-
     });
  
 checkoutRouter.route('/paymentSucceed')

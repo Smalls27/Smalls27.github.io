@@ -3,7 +3,7 @@ const express = require('express');
 const playerRouter = express.Router();
 const Songs = require('../schemas/songSchema');
 const User = require('../schemas/userSchema');
-const stripe = require('stripe')(process.env.secret_key);
+const stripe = require('stripe')(process.env.secret_key_live);
 
 
 const isLoggedIn = (req, res, next) => {
