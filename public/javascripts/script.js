@@ -25,17 +25,6 @@ const paragraph = document.getElementsByTagName('p')[0];
 let loadSongs = [];
 
 // The object that will house all of the functionality of the player. //////////////////////////////////////////////////////////
-if (cartButton) {
-    cartButton.addEventListener('click', () => {
-        for (let i = 0; i < checkboxes.length; i++) {
-            if (!checkboxes[i].checked) {
-                // paragraph.style.color = red;
-                paragraph.innerHTML = "The checkbox for the song you want must be checked.";
-                break;
-            };
-        };
-    });
-};
 
 if (downloadSong) {
     let clicked = 0;
@@ -96,7 +85,7 @@ if (downloadSong) {
             if (clicked === 1) {
                 setTimeout(() => {
                     window.location.assign('/musicPlayer');
-                }, 1500);
+                }, 800);
             };
         });
 
