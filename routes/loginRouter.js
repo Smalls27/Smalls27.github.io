@@ -21,12 +21,12 @@ loginRouter.route('/')
     };
 
     User.findOne({username: login.username})
-    .then(user => {
+    .then(async user => {
       if (!user) {
         res.render('accountError');
       };
 
-      if (login.password === '' || login.password !== user.password) {
+      if (await !bcrypt.compare(login.Password, user.password) || login.Password === '') {
         res.render('passwordError');
       };
     

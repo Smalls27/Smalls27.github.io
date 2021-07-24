@@ -1,5 +1,6 @@
 const express = require('express');
 const accountRouter = express.Router();
+const bcrypt = require('bcrypt');
 const User = require('../schemas/userSchema');
 ;
 
@@ -8,9 +9,10 @@ accountRouter.route('/')
         res.render('account');
     })
     .post(async (req, res, next) => {
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
         const newUser = {
             username: req.body.username,
-            password: req.body.password,
+            password: hashedPassword,
             email: req.body.email
         };
         User.findOne({username: newUser.username})
