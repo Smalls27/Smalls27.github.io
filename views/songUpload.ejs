@@ -1,41 +1,35 @@
 <%- include('partials/header') %>
-        <form action="/upload" method="POST">
-            <div class="container uploadStyle">
-                <div class="row">
-                    <div class="card col cardStyle">
-                        <div class="card-body">
-                            <div class="row">
-                                <p class="col">Input song information to upload into the database.</p>
-                            </div>
-                            <div class="row">
-                                <input class="col form-control inputStyle" type="text" name="artist" placeholder="Artist" />
-                            </div>
-                            <br>
-                            <div class="row">
-                                <input class="col form-control inputStyle" type="text" name="song" placeholder="Song" />
-                            </div>
-                            <br>
-                            <div class="row">
-                                <input class="col form-control inputStyle" type="text" name="path" placeholder="Path" />
-                            </div>
-                            <br>
-                            <div class="row">
-                                <input class="col form-control inputStyle" type="text" name="price" placeholder="Price" />
-                            </div>
-                            <br>
-                            <div class="row">
-                                <input class="col-md-5 form-control inputStyle" type="text" name="album" placeholder="Album" />
-                                <div class="col-md-2"></div>
-                                <input class="col-md-5 form-control inputStyle" type="text" name="single" placeholder="Single" />
-                            </div>
-                            <br>
-                            <br>
-                            <div class="row">
-                                <button type="submit" class="btn btn-block createButtonStyle">Submit</button>
-                            </div>
-                        </div>
-                    </div>
+        <div class="container uploadStyle">
+            <form action="/upload" method="POST">
+                <div cla{ss="row">
+                    <p class="col">Input song information to upload into the database.</p>
                 </div>
-            </div>
-        </form> 
+                <div class="row">
+                    <input class="col form-control inputStyle" type="text" name="artist" placeholder="Artist" />
+                </div>
+                <br>
+                <div class="row">
+                    <input class="col form-control inputStyle" type="text" name="song" placeholder="Song" />
+                </div>
+                <br>
+                <div class="row">
+                    <input class="col form-control inputStyle" type="text" name="path" placeholder="Path" />
+                </div>
+                <br>
+                <div class="row">
+                    <input class="col form-control inputStyle" type="text" name="price" placeholder="Price" />
+                </div>
+                <br>
+                <div class="row">
+                    <input class="col-md-5 form-control inputStyle" type="text" name="album" placeholder="Album" />
+                    <div class="col-md-2"></div>
+                    <input class="col-md-5 form-control inputStyle" type="text" name="single" placeholder="Single" />
+                </div>
+                <br>
+                <br>
+                <div class="row">
+                <button type="submit" class="btn btn-block createButtonStyle">Submit</button>
+                </div>
+            </form> 
+        </div>
 <%- include('partials/footer') %>
