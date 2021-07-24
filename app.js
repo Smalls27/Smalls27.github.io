@@ -16,7 +16,7 @@ const uploadRouter = require('./routes/uploadRouter');
 const downloadRouter = require('./routes/download');
 
 
-mongoose.connect('mongodb://rgm-15783:z8nBzRksUMx3BgSm4odsylzox96dNf@db-rgm-15783.nodechef.com:5373/rgm', {
+mongoose.connect(process.env.mongo, {
   useCreateIndex: true,
   useFindAndModify: false,
   useNewUrlParser: true, 
