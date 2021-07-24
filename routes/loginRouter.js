@@ -20,7 +20,7 @@ loginRouter.route('/')
       password: req.body.password
     };
 
-    User.findOne({username: login.password})
+    User.findOne({password: login.password})
     .then(user => {
       if (!user) {
         res.render('accountError');
