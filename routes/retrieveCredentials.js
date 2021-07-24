@@ -18,7 +18,7 @@ credentialRouter.route('/')
             } else {
             res.send(`<html>
                             <body>
-                                <h1>Email: ${user.email}</h1>\n<h1>Password: ${user.password}</h1>\n<button onclick=${"backToLoginPage()"}>Go back to login page</button>
+                                <h1>Email: ${user.email}</h1>\n<h1>Password: ${user.password}</h1>\n<button onclick="backToLoginPage()">Go back to login page</button>
                                 ${'<script src="/javascripts/script.js"></script>'}
                             </body>
                         </html>`);
