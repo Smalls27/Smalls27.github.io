@@ -16,11 +16,7 @@ const uploadRouter = require('./routes/uploadRouter');
 const downloadRouter = require('./routes/download');
 
 
-<<<<<<< HEAD
 mongoose.connect(process.env.mongo, {
-=======
-mongoose.connect('process.env.mongo', {
->>>>>>> fe22cc10dfcdbfe67fabaf9b7b77f792a8e77562
   useCreateIndex: true,
   useFindAndModify: false,
   useNewUrlParser: true, 
