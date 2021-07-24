@@ -20,13 +20,13 @@ loginRouter.route('/')
       password: req.body.password
     };
 
-    User.findOne({password: login.password})
+    User.findOne({username: login.username})
     .then(user => {
       if (!user) {
         res.render('accountError');
       };
 
-      if (login.Password === '') {
+      if (login.password === '' || login.password !== user.password) {
         res.render('passwordError');
       };
     
